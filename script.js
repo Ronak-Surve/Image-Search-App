@@ -1,4 +1,4 @@
-const dotenv = require('dotenv').config();
+import accessKey from "./secretFile.js";
 
 const formElement = document.querySelector("form");
 const inputElement = document.querySelector("input");
@@ -12,7 +12,7 @@ async function searchImages() {
 
     inputSearch = inputElement.value;
 
-    const url = `https://api.unsplash.com/search/photos?page=${page}&query=${inputSearch}&client_id=${process.env.ACCESS_KEY}`;
+    const url = `https://api.unsplash.com/search/photos?page=${page}&query=${inputSearch}&client_id=${accessKey}`;
 
     const response = await fetch(url);
     const data = await response.json();
